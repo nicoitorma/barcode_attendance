@@ -1,4 +1,4 @@
-# barcode_attendance
+# DYNAMIC BARCODE-BASED SCHOOL EVENT ATTENDANCE SYSTEM
 
 A new Flutter project.
 
