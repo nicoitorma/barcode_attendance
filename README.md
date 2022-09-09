@@ -1,7 +1,6 @@
 # DYNAMIC BARCODE-BASED SCHOOL EVENT ATTENDANCE SYSTEM
 
-A new Flutter project.
-
+A Flutter project created for the course CS1131 Software Engineering
 ## Getting Started
 
 This project is a starting point for a Flutter application.
