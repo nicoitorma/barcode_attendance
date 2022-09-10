@@ -1,5 +1,4 @@
 import 'package:barcode_attendance/Models/DataModels/Attendance.dart';
-import 'package:barcode_attendance/Models/Database/AttendanceDB.dart';
 import 'package:barcode_attendance/ViewModels/DataAccessObjects/attendance_dao.dart';
 import 'package:barcode_attendance/constants_strings.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,7 @@ class AttendancePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Barcode Attendance',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -46,7 +45,7 @@ class MyAttendancePage extends StatefulWidget {
 class _MyAttendancePageState extends State<MyAttendancePage> {
   /// FUNCTION TO ADD ATTENDANCE IN THE LIST (UNFINISHED - NO INPUT LAYOUT)
   void addAttendance() {
-    // SAMPLE ATTENDANCE
+    // SAMPLE ATTENDANCE DATA
     Attendance attendance1 = Attendance(
         name: "VEEEEEEERRRRRRRYYYYY LOOOOOOOONNNNGGGG TITLE",
         details: "details1",
