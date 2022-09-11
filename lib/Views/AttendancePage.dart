@@ -1,5 +1,6 @@
 import 'package:barcode_attendance/Models/DataModels/Attendance.dart';
 import 'package:barcode_attendance/ViewModels/DataAccessObjects/attendance_dao.dart';
+import 'package:barcode_attendance/Views/studentPage.dart';
 import 'package:barcode_attendance/constants_strings.dart';
 import 'package:flutter/material.dart';
 
@@ -89,18 +90,27 @@ class _MyAttendancePageState extends State<MyAttendancePage> {
                         snapshot.data!.remove(snapshot.data![index]);
                       });
                     },
-                    child: Card(
-                        child: ListTile(
-                      contentPadding: const EdgeInsets.all(8.0),
-                      title: Text(snapshot.data![index].name),
-                      subtitle: Text(snapshot.data![index].details.toString()),
-                    )),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const StudentPage()));
+                      },
+                      child: Card(
+                          child: ListTile(
+                        contentPadding: const EdgeInsets.all(8.0),
+                        title: Text(snapshot.data![index].name),
+                        subtitle:
+                            Text(snapshot.data![index].details.toString()),
+                      )),
+                    ),
                   );
                 });
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: addAttendance,
-        tooltip: "Add attendance",
+        tooltip: ADD_STUDENT_TOOLTIP,
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
