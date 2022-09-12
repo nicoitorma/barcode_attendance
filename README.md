@@ -1,15 +1,11 @@
 # DYNAMIC BARCODE-BASED SCHOOL EVENT ATTENDANCE SYSTEM
 
 A Flutter project created for the course CS1131 Software Engineering
-## Getting Started
 
-This project is a starting point for a Flutter application.
+This software uses the Model-View-ViewModel (MVVM) architecture. MVVM architecture is the easiest to maintain since its parts are compiled in a module style wherein the business logic is separated from UI elements, and the database itself.  
 
-A few resources to get you started if this is your first Flutter project:
+The "view" or the UI elements of this software are not aware where the data comes from. It only handles how the user interact with the software.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Architechture:
+Models <=> ViewModel <=> Views
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

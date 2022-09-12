@@ -52,8 +52,9 @@ class _MyAttendancePageState extends State<MyAttendancePage> {
         details: "details1",
         timeAndDate: "timeAndDate1");
 
+    //calls the DAO to insert the created attendance into DB
     widget.attendanceDao.insertAttendance(attendance1);
-    setState(() {});
+    setState(() {}); //reloads the UI state
   }
 
   @override
