@@ -1,6 +1,6 @@
 import 'package:barcode_attendance/Models/DataModels/Attendance.dart';
 import 'package:barcode_attendance/ViewModels/DataAccessObjects/attendance_dao.dart';
-import 'package:barcode_attendance/Views/studentPage.dart';
+import 'package:barcode_attendance/Views/StudentPage.dart';
 import 'package:barcode_attendance/constants_strings.dart';
 import 'package:flutter/material.dart';
 
@@ -117,7 +117,6 @@ class _MyAttendancePageState extends State<MyAttendancePage> {
         });
 
     //widget.attendanceDao.insertAttendance(attendance1);
-
   }
 
   @override
