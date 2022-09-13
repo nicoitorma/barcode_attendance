@@ -1,5 +1,5 @@
 import 'package:barcode_attendance/Views/StudentPage.dart';
-import 'package:barcode_attendance/constants_strings.dart';
+import 'package:barcode_attendance/Resources/constants_strings.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -55,23 +55,26 @@ class _MyLoginPageState extends State<MyLoginPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text(EMAIL_ADDRESS),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     controller: email,
+                    decoration: const InputDecoration(
+                        hintText: "email@example.com",
+                        labelText: EMAIL_ADDRESS),
                     validator: (value) {
                       if (value!.isEmpty) {
+                        //checks if text field is empty
                         return INVALID_EMAIL;
                       }
                       if (value.contains('@')) {
+                        //checks if may @ yung email
                         return INVALID_EMAIL;
                       }
                       return null;
                     },
                   ),
                 ),
-                const Text(EMAIL_ADDRESS),
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: TextFormField(
@@ -84,7 +87,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     },
                     obscureText: true,
                     decoration: const InputDecoration(
-                        hintText: "Enter Password Here", labelText: "Password"),
+                        hintText: "Enter Password Here", labelText: PASSWORD),
                   ),
                 ),
                 Padding(
@@ -92,17 +95,18 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   child: ElevatedButton(
                     child: const Text("Log in"),
                     onPressed: () {
+                      //magreredirect siya somewhere in this case sa StudentPage
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const StudentPage()));
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState?.save();
+                      // if (formKey.currentState!.validate()) {
+                      //   formKey.currentState?.save();
 
-                        //Log in the user
+                      //   //Log in the user
 
-                        setState(() {}); //reloads the UI state
-                      }
+                      //   setState(() {}); //reloads the UI state
+                      // }
                     },
                   ),
                 )

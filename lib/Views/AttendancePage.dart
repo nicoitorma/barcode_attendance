@@ -1,7 +1,7 @@
 import 'package:barcode_attendance/Models/DataModels/Attendance.dart';
 import 'package:barcode_attendance/ViewModels/DataAccessObjects/attendance_dao.dart';
 import 'package:barcode_attendance/Views/StudentPage.dart';
-import 'package:barcode_attendance/constants_strings.dart';
+import 'package:barcode_attendance/Resources/constants_strings.dart';
 import 'package:flutter/material.dart';
 
 class AttendancePage extends StatelessWidget {
