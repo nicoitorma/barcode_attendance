@@ -1,3 +1,4 @@
+import 'package:barcode_attendance/Utilities/barcode_scanner.dart';
 import 'package:flutter/material.dart';
 
 class StudentPage extends StatelessWidget {
@@ -35,7 +36,10 @@ class MyStudentPage extends StatefulWidget {
 }
 
 class _MyStudentPageState extends State<MyStudentPage> {
-  void scanBarcode() {}
+  void scanBarcode() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const BarcodeScanner()));
+  }
 
   @override
   Widget build(BuildContext context) {

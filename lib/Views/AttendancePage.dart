@@ -44,17 +44,80 @@ class MyAttendancePage extends StatefulWidget {
 }
 
 class _MyAttendancePageState extends State<MyAttendancePage> {
-  /// FUNCTION TO ADD ATTENDANCE IN THE LIST (UNFINISHED - NO INPUT LAYOUT)
+  /// FUNCTION TO ADD ATTENDANCE IN THE LIST (UNFINISHED - NO LAYOUT)
   void addAttendance() {
     // SAMPLE ATTENDANCE DATA
-    Attendance attendance1 = Attendance(
-        name: "VEEEEEEERRRRRRRYYYYY LOOOOOOOONNNNGGGG TITLE",
-        details: "details1",
-        timeAndDate: "timeAndDate1");
+    final formKey = GlobalKey<FormState>();
+    TextEditingController attendanceName = TextEditingController();
 
-    //calls the DAO to insert the created attendance into DB
-    widget.attendanceDao.insertAttendance(attendance1);
-    setState(() {}); //reloads the UI state
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Stack(
+              children: <Widget>[
+                Positioned(
+                  right: -40.0,
+                  top: -40.0,
+                  child: InkResponse(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const CircleAvatar(
+                      backgroundColor: Colors.red,
+                      child: Icon(Icons.close),
+                    ),
+                  ),
+                ),
+                Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          controller: attendanceName,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter a valid attendance name';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          child: const Text("Submit"),
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              formKey.currentState?.save();
+
+                              //calls the DAO to insert the created attendance into DB
+                              widget.attendanceDao.insertAttendance(Attendance(
+                                  name: attendanceName.text,
+                                  details: attendanceName.text,
+                                  timeAndDate: attendanceName.text));
+                              setState(() {}); //reloads the UI state
+                            }
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
+
+    //widget.attendanceDao.insertAttendance(attendance1);
+
   }
 
   @override
@@ -69,7 +132,7 @@ class _MyAttendancePageState extends State<MyAttendancePage> {
           future: widget.attendanceDao.getAllAttendance(),
           builder:
               (BuildContext context, AsyncSnapshot<List<Attendance>> snapshot) {
-            if (snapshot.data!.isEmpty) {
+            if (!snapshot.hasData) {
               return const Center(child: Text(NO_ATTENDANCE_AVAILABLE));
             }
             return ListView.builder(
