@@ -99,10 +99,11 @@ class _MyAttendancePageState extends State<MyAttendancePage> {
                               formKey.currentState?.save();
 
                               //calls the DAO to insert the created attendance into DB
-                              widget.attendanceDao.insertAttendance(Attendance(
-                                  name: attendanceName.text,
-                                  details: attendanceName.text,
-                                  timeAndDate: attendanceName.text));
+                              // widget.attendanceDao.insertAttendance(Attendance(
+                              //     name: attendanceName.text,
+                              //     details: attendanceName.text,
+                              //     timeAndDate: attendanceName.text,
+                              //     cutOffTime: attendanceName.text));
                               setState(() {}); //reloads the UI state
                             }
                           },

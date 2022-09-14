@@ -82,7 +82,7 @@ class _$AttendanceDatabase extends AttendanceDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Attendance` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `details` TEXT NOT NULL, `timeAndDate` TEXT NOT NULL)');
+            'CREATE TABLE IF NOT EXISTS `Attendance` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `details` TEXT NOT NULL, `timeAndDate` TEXT NOT NULL, `cutOffTime` TEXT NOT NULL)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -106,7 +106,8 @@ class _$AttendanceDao extends AttendanceDao {
                   'id': item.id,
                   'name': item.name,
                   'details': item.details,
-                  'timeAndDate': item.timeAndDate
+                  'timeAndDate': item.timeAndDate,
+                  'cutOffTime': item.cutOffTime
                 },
             changeListener),
         _attendanceUpdateAdapter = UpdateAdapter(
@@ -117,7 +118,8 @@ class _$AttendanceDao extends AttendanceDao {
                   'id': item.id,
                   'name': item.name,
                   'details': item.details,
-                  'timeAndDate': item.timeAndDate
+                  'timeAndDate': item.timeAndDate,
+                  'cutOffTime': item.cutOffTime
                 },
             changeListener);
 
@@ -138,7 +140,8 @@ class _$AttendanceDao extends AttendanceDao {
             id: row['id'] as int?,
             name: row['name'] as String,
             details: row['details'] as String,
-            timeAndDate: row['timeAndDate'] as String));
+            timeAndDate: row['timeAndDate'] as String,
+            cutOffTime: row['cutOffTime'] as String));
   }
 
   @override
@@ -148,7 +151,8 @@ class _$AttendanceDao extends AttendanceDao {
             id: row['id'] as int?,
             name: row['name'] as String,
             details: row['details'] as String,
-            timeAndDate: row['timeAndDate'] as String),
+            timeAndDate: row['timeAndDate'] as String,
+            cutOffTime: row['cutOffTime'] as String),
         arguments: [id],
         queryableName: 'Attendance',
         isView: false);
@@ -161,7 +165,8 @@ class _$AttendanceDao extends AttendanceDao {
             id: row['id'] as int?,
             name: row['name'] as String,
             details: row['details'] as String,
-            timeAndDate: row['timeAndDate'] as String),
+            timeAndDate: row['timeAndDate'] as String,
+            cutOffTime: row['cutOffTime'] as String),
         arguments: [id]);
   }
 
