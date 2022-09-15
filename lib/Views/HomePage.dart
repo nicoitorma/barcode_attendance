@@ -65,13 +65,33 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: AlignmentDirectional.bottomCenter,
             child: Container(
-              height: 450,
+              padding: const EdgeInsets.all(20),
+              height: MediaQuery.of(context).size.height * 0.65,
               alignment: AlignmentDirectional.bottomCenter,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40.0),
                       topRight: Radius.circular(40.0))),
+              child: Align(
+                alignment: AlignmentDirectional.topStart,
+                child: Container(
+                  height: 150,
+                  width: 150,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40.0))),
+                  child: const Card(
+                    color: Color.fromARGB(255, 76, 125, 255),
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        "SY 2022-2023",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ],
