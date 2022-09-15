@@ -82,7 +82,7 @@ class _$AttendanceDatabase extends AttendanceDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Attendance` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `details` TEXT NOT NULL, `timeAndDate` TEXT NOT NULL, `cutOffTime` TEXT NOT NULL)');
+            'CREATE TABLE IF NOT EXISTS `Attendance` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `user` TEXT NOT NULL, `name` TEXT NOT NULL, `details` TEXT NOT NULL, `timeAndDate` TEXT NOT NULL, `cutOffTime` TEXT NOT NULL)');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -104,6 +104,7 @@ class _$AttendanceDao extends AttendanceDao {
             'Attendance',
             (Attendance item) => <String, Object?>{
                   'id': item.id,
+                  'user': item.user,
                   'name': item.name,
                   'details': item.details,
                   'timeAndDate': item.timeAndDate,
@@ -116,6 +117,7 @@ class _$AttendanceDao extends AttendanceDao {
             ['id'],
             (Attendance item) => <String, Object?>{
                   'id': item.id,
+                  'user': item.user,
                   'name': item.name,
                   'details': item.details,
                   'timeAndDate': item.timeAndDate,
@@ -138,6 +140,7 @@ class _$AttendanceDao extends AttendanceDao {
     return _queryAdapter.queryList('SELECT * FROM Attendance',
         mapper: (Map<String, Object?> row) => Attendance(
             id: row['id'] as int?,
+            user: row['user'] as String,
             name: row['name'] as String,
             details: row['details'] as String,
             timeAndDate: row['timeAndDate'] as String,
@@ -149,6 +152,7 @@ class _$AttendanceDao extends AttendanceDao {
     return _queryAdapter.queryStream('SELECT * FROM Attendance WHERE id = ?1',
         mapper: (Map<String, Object?> row) => Attendance(
             id: row['id'] as int?,
+            user: row['user'] as String,
             name: row['name'] as String,
             details: row['details'] as String,
             timeAndDate: row['timeAndDate'] as String,
@@ -163,6 +167,7 @@ class _$AttendanceDao extends AttendanceDao {
     return _queryAdapter.query('DELETE FROM Attendance WHERE id = ?1',
         mapper: (Map<String, Object?> row) => Attendance(
             id: row['id'] as int?,
+            user: row['user'] as String,
             name: row['name'] as String,
             details: row['details'] as String,
             timeAndDate: row['timeAndDate'] as String,

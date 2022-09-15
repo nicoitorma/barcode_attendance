@@ -1,0 +1,8 @@
+Online backend
+-create user
+-retrieve user
+-authenticate user
+
+Offline backend
+-no log in
+-no sign up

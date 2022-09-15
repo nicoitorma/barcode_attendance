@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import Attendance
@@ -8,7 +9,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import AttendanceSerializer, ScannedStudentsSerializer
-from .models import Attendance, ScannedStudents
+from .models import Attendance, ScannedStudent
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.views import LoginView
@@ -60,7 +61,7 @@ def getRoutes(request):
 # @login_required
 @api_view(['GET'])
 def getAttendances(request):
-    attendances = Attendance.objects.all()
+    attendances = Attendance.objects.filter(user=request.user)
     serializer = AttendanceSerializer(attendances, many=True)
     return Response(serializer.data)
 
@@ -94,7 +95,7 @@ def deleteAttendance(request, pk):
 def addStudent(request, pk):
     data = request.data
     attendance = Attendance.objects.get(id=pk)
-    attendance_content = ScannedStudents.objects.create(
+    attendance_content = ScannedStudent.objects.create(
         attendance_id = attendance,
         student_name = data['student_name'],
         student_id = data['student_id']

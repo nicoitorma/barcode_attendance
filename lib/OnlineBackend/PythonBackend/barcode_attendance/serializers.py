@@ -3,6 +3,7 @@ from .models import Attendance
 
 class AttendanceSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
+    user = serializers.CharField(max_length = 50)
     name = serializers.CharField(max_length=50)
     students_count = serializers.SerializerMethodField()
     details = serializers.CharField(max_length=100)

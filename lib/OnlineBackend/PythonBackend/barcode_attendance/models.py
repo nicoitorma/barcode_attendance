@@ -16,7 +16,7 @@ class Attendance(models.Model):
         ordering = ['-time_and_date']
         
         
-class ScannedStudents(models.Model):
+class ScannedStudent(models.Model):
     attendance_id = models.ForeignKey(Attendance, related_name='attendances', on_delete=models.CASCADE)
     student_name = models.CharField(max_length=60)
     student_id_num = models.CharField(max_length=10)
