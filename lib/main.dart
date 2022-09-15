@@ -3,6 +3,7 @@ import 'package:barcode_attendance/Views/AttendancePage.dart';
 import 'package:flutter/material.dart';
 
 import 'Models/Database/AttendanceDB.dart';
+import 'Views/HomePage.dart';
 
 // Future<void> main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -20,5 +21,5 @@ import 'Models/Database/AttendanceDB.dart';
 // }
 
 void main() {
-  runApp(const LoginPage());
+  runApp(const HomePage());
 }
