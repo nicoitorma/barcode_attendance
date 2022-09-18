@@ -1,9 +1,9 @@
 import 'package:barcode_attendance/Views/LogIn.dart';
-import 'package:barcode_attendance/Views/AttendancePage.dart';
+import 'package:barcode_attendance/Views/attendance_page.dart';
 import 'package:flutter/material.dart';
 
 import 'Models/Database/AttendanceDB.dart';
-import 'Views/HomePage.dart';
+import 'Views/home_page.dart';
 
 // Future<void> main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
