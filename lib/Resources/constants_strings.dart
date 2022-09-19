@@ -1,4 +1,4 @@
-const String NO_ATTENDANCE_AVAILABLE = "No attendance available";
+const String NO_AVAILABLE_DATA = "No Available Data";
 const String ADD_STUDENT_TOOLTIP = "Add Attendance";
 const String INVALID_EMAIL = "Please enter a valid email address";
 const String INVALID_PASSWORD = "Please enter your password";

@@ -51,63 +51,7 @@ class _MyDaysPageState extends State<MyDaysPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BLUE,
-      body: Stack(
-        children: <Widget>[
-          const Align(
-            alignment: AlignmentDirectional.topStart,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(45, 80, 0, 0),
-              child: Text(
-                WELCOME,
-                style: TextStyle(fontSize: 40.0, color: Colors.white),
-              ),
-            ),
-          ),
-          Align(
-            alignment: AlignmentDirectional.bottomCenter,
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              height: MediaQuery.of(context).size.height * 0.80,
-              alignment: AlignmentDirectional.bottomCenter,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40.0),
-                  topRight: Radius.circular(40.0),
-                ),
-              ),
-              child: GridView.builder(
-                  padding: const EdgeInsets.all(20),
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 200,
-                      childAspectRatio: 2 / 2,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20),
-                  itemCount: schoolYear.length,
-                  itemBuilder: (BuildContext ctx, index) {
-                    return GestureDetector(
-                      // onTap: () => Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) => const AttendancePage()),
-                      // ),
-                      child: Container(
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [GREEN, BLUE]),
-                            borderRadius: BorderRadius.circular(18)),
-                        child: Text(schoolYear[index]["Name"]),
-                      ),
-                    );
-                  }),
-            ),
-          ),
-        ],
-      ),
-
+      body: const Align(alignment: Alignment.center, child: Text("CALENDAR")),
       floatingActionButton: FloatingActionButton(
         onPressed: addSchoolYear,
         tooltip: 'Increment',

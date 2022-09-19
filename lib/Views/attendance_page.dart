@@ -133,7 +133,7 @@ class _MyAttendancePageState extends State<MyAttendancePage> {
           builder:
               (BuildContext context, AsyncSnapshot<List<Attendance>> snapshot) {
             if (!snapshot.hasData) {
-              return const Center(child: Text(NO_ATTENDANCE_AVAILABLE));
+              return const Center(child: Text(NO_AVAILABLE_DATA));
             }
             return ListView.builder(
                 itemCount: snapshot.data?.length,

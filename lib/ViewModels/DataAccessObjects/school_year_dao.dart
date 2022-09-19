@@ -13,5 +13,5 @@ abstract class SchoolYearDao {
   Future<SchoolYear?> deleteSchoolYear(int id);
 
   @insert
-  Future<void> insertSchoolYear(SchoolYear attendance);
+  Future<void> insertSchoolYear(SchoolYear schoolYear);
 }
